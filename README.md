@@ -1,12 +1,12 @@
 # hotchopper
 ## Version 1.0
 
-HOTchopper is a tool for the extraction of BSP HOT files with the criteria of 
+HOTchopper is a tool for extracting BSP HOT files based on either
 the TDNR (Ticket Document Number) or the TRNN (Transaction Number).
 With the extracted transactions, HOTchopper recalculates all total records (BOT93, BOT94, BCT95 and BFT99) 
-based on the rule defined in IATA DISH(data interchange sepcifications handbook), 
+based on rules defined in the IATA DISH (Data Interchange Specifications Handbook),
 so that the output file can be used directly by revenue accounting systems conforming to the IATA DISH.
-file:///C:/workplace/hotchop/testdata/bsp-dish-rev22-2016.pdf
+(Reference: IATA DISH Rev.22 PDF available on IATA website)
 
 ## ✅ Key features
 
@@ -35,6 +35,7 @@ sudo apt install python3-tk
 
 
 ## 🚀 How to use GUI
+Run the following command to launch the graphical interface:
 
 ```bash
 poetry run python gui.py
@@ -46,14 +47,23 @@ poetry run python gui.py
 - ④ Start processing HOT chopper
 - ⑤ Exit button
 
-![GUI with TDNR criteria](GUI_TRNN.png)
+![GUI with TRNN criteria](GUI_TRNN.png)
 
 ## 🚀 How to use CLI
 
-### There 5 arArguments
+### There are 5 arArguments
 ```bash
 poetry run python -m hotchop.cli input_path output_path chop_criteria --criteria_type TDNR --overwrite --log
 ```
+| Argument          | Required | Description                                  |
+|-------------------|----------|----------------------------------------------|
+| input_path        | ✅       | Path to the HOT file                         |
+| output_path       | ✅       | Path to save the chopped HOT file            |
+| chop_criteria     | ✅       | Comma-separated list of TDNR or TRNN values  |
+| --criteria_type   | ❌       | Type of criteria: TDNR (default) or TRNN     |
+| --overwrite       | ❌       | Overwrite output file if it already exists   |
+| --log             | ❌       | Output logs to hotchop.log                   |
+
 ### HOT chop by the TDNR criteria(Please note that TDNR is the default criteria type and can be abbreviated.)
 ```bash
 poetry run python -m hotchop.cli testdata/Input.txt testdata/output.txt 9992423207406,9992423239061 --criteria_type TDNR --overwrite --log
