@@ -9,10 +9,10 @@ so that the output file can be used directly by revenue accounting systems confo
 (Reference: IATA DISH Rev.22 PDF available on IATA website)
 
 ## ✅ Key features
-
+- Recalculates all total records based on rules defined in the IATA DISH.
 - A Graphical user interface (GUI) is available for setting the argument (input file, output file and chop criteria)
 - As another option, the command-line interface (CLI) can be used to provide the same functionality as the GUI.
-- Automatic identification of line break code from the initial 1000 characters of the HOT file.
+- Automatic identification of line break code(LF / CRLF) from the initial 1000 characters of the HOT file.
 - HOT file is compatible with IATA dish 22.0 or later
 - In order to avoid any potential conflict with the original file, both TIME and FSQN in BFH01 are set at random.
 
@@ -22,7 +22,7 @@ Install dependencies with Poetry:
 
 ```bash
 poetry install
-poetry run python -m md2pt_jp.cli ...
+poetry run python -m hotchop.cli ...
 ```
 
 ### 💡 about tkinter
@@ -43,15 +43,22 @@ poetry run python gui.py
 ![GUI with TDNR criteria](GUI_TDNR.png)
 - ① The input file selection dialogue is displayed.
 - ② The output file selection dialogue is displayed.
-- ③ The criteria input box contains the default characters.
+- ③ The criteria input box contains the default TDNR characters.
+    Following processing, the results will be displayed for each criterion as outlined below.
+    9992423207406 OK → This TDNR exists in the input HOT file and has been successfully extracted.
+    9992423239061 __ → This TDNR does not exist in the input HOT file.
 - ④ Start processing HOT chopper
 - ⑤ Exit button
 
 ![GUI with TRNN criteria](GUI_TRNN.png)
+- ③ The criteria input box contains the default TRNN characters.
+    Following processing, the results will be displayed for each criterion as outlined below.
+    000101 OK → This TRNN exists in the input HOT file and has been successfully extracted.
+    000203 __ → This TRNN does not exist in the input HOT file.
 
 ## 🚀 How to use CLI
 
-### There are 5 arArguments
+### There are 6 arArguments
 ```bash
 poetry run python -m hotchop.cli input_path output_path chop_criteria --criteria_type TDNR --overwrite --log
 ```
@@ -63,6 +70,14 @@ poetry run python -m hotchop.cli input_path output_path chop_criteria --criteria
 | --criteria_type   | ❌       | Type of criteria: TDNR (default) or TRNN     |
 | --overwrite       | ❌       | Overwrite output file if it already exists   |
 | --log             | ❌       | Output logs to hotchop.log                   |
+
+- Following processing, the results will be displayed both in terminal and logfile for each criterion as outlined below.
+--criteria_type TDNR
+  9992423207406 OK → This TDNR exists in the input HOT file and has been successfully extracted.
+  9992423239061 __ → This TDNR does not exist in the input HOT file.
+--criteria_type TRNN
+  000101 OK → This TRNN exists in the input HOT file and has been successfully extracted.
+  000203 __ → This TRNN does not exist in the input HOT file.
 
 ### HOT chop by the TDNR criteria(Please note that TDNR is the default criteria type and can be abbreviated.)
 ```bash
