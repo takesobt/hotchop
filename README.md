@@ -45,6 +45,7 @@ poetry run python gui.py
 - ② The output file selection dialogue is displayed.
 - ③ The criteria input box contains the default TDNR characters.
     Following processing, the results will be displayed for each criterion as outlined below.
+
     9992423207406 OK → This TDNR exists in the input HOT file and has been successfully extracted.
     9992423239061 __ → This TDNR does not exist in the input HOT file.
 - ④ Start processing HOT chopper
@@ -53,6 +54,7 @@ poetry run python gui.py
 ![GUI with TRNN criteria](GUI_TRNN.png)
 - The criteria input box contains the default TRNN characters.
   Following processing, the results will be displayed for each criterion as outlined below.
+  
   000101 OK → This TRNN exists in the input HOT file and has been successfully extracted.
   000203 __ → This TRNN does not exist in the input HOT file.
 
