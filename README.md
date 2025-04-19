@@ -57,7 +57,7 @@ poetry run python gui.py --log
 
 ![GUI with TRNN criteria](GUI_TRNN.png)
 
-3. The criteria input box contains the default TRNN characters.
+- The criteria input box contains the default TRNN characters.
   Following processing, the results will be displayed for each criterion as outlined below.
   - 000101 OK → This TRNN exists in the input HOT file and has been successfully extracted.
   - 000203 __ → This TRNN does not exist in the input HOT file.
