@@ -45,6 +45,7 @@ poetry run python gui.py --log
 | --log             | ❌       | Output logs to hotchop.log and stdout        |
 
 ![GUI with TDNR criteria](GUI_TDNR.png)
+
 1. The input file selection dialogue is displayed.
 2. The output file selection dialogue is displayed.
 3. The criteria input box contains the default TDNR characters.
@@ -55,6 +56,7 @@ poetry run python gui.py --log
 5. Exit button
 
 ![GUI with TRNN criteria](GUI_TRNN.png)
+
 3. The criteria input box contains the default TRNN characters.
   Following processing, the results will be displayed for each criterion as outlined below.
   - 000101 OK → This TRNN exists in the input HOT file and has been successfully extracted.
