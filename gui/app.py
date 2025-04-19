@@ -50,15 +50,25 @@ def main():
         HOTchopper_ins.HOT_chop()
 
         # Result get by dictionary
-        chop_criteria = HOTchopper_ins.getresult_criteria()
+        result_criteria = HOTchopper_ins.getresult_criteria()
         wk_msg = ""
-        for c1, c2 in chop_criteria.items():
-            wk_msg += c1 + " " + c2 + "\n"
+        for c1, c2 in result_criteria.items():
+            wk_msg +=  c1 + " " + c2 + "\n"
         text_area.delete("1.0", tk.END)
         text_area.insert(tk.END, wk_msg)
-        # msgbox
+
+        # Result number display to the messagebox and log
+        result_number = HOTchopper_ins.getresult_number()
+        messagebox.showinfo("Success", result_number)
+        logging.info(f"Processed Number Result⬇️\n{result_number}")
+
+        # Result criteria display to the messagebox and log
+        wk_msg = "Chop criteria : " + criteria_type
+        for c1, c2 in result_criteria.items():
+            wk_msg += "\n" + c1 + " " + c2
+        logging.info(f"Processed Criteria Result⬇️\n{wk_msg}")
+        # Display success message to log
         logging.info("✅ The HOT file was chopped successfully.") 
-        messagebox.showinfo("Success", HOTchopper_ins.getresult_number())
 
     def select_input_file():
         input_file = filedialog.askopenfilename(title="Select Input File")

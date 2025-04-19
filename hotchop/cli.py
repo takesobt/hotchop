@@ -54,9 +54,9 @@ def main():
         logging.info(f"Processed Number Result⬇️\n{result_number}")
         # Result get by the dictionary
         result_criteria = HOTchopper_ins.getresult_criteria()
-        wk_msg = "Chop criteria : " + args.criteria_type + "\n"
+        wk_msg = "Chop criteria : " + args.criteria_type
         for c1, c2 in result_criteria.items():
-            wk_msg += c1 + " " + c2 + "\n"
+            wk_msg += "\n" + c1 + " " + c2
         logging.info(f"Processed Criteria Result⬇️\n{wk_msg}")
         # Display result message
         logging.info("✅ The HOT file was chopped successfully.") 

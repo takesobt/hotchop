@@ -63,7 +63,7 @@ def setup_logger(enable_log: bool):
     if enable_log:
         handlers = [
             logging.FileHandler("hotchop.log", encoding="utf-8"),
-            logging.StreamHandler(sys.stdout)  # ← stdoutにも出す！
+            logging.StreamHandler(sys.stdout)  # ← stdout output added
         ]
         logging.basicConfig(
             level=logging.INFO,
