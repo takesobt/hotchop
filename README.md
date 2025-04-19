@@ -10,6 +10,7 @@ so that the output file can be used directly by revenue accounting systems confo
 
 ## ✅ Key features
 - Recalculates all total records based on rules defined in the IATA DISH.
+- Recalculates all record's SQNR(Sequence Number).
 - A Graphical user interface (GUI) is available for setting the argument (input file, output file and chop criteria)
 - As another option, the command-line interface (CLI) can be used to provide the same functionality as the GUI.
 - Automatic identification of line break code(LF / CRLF) from the initial 1000 characters of the HOT file.
@@ -22,6 +23,7 @@ This software is licensed under the [MIT License](LICENSE) for personal and non-
 
 For commercial use, redistribution, or integration into proprietary products,  
 please contact the author to obtain a commercial license:
+
 📧 takesobt@yahoo.com
 
 This software is intentionally designed for niche use cases (e.g. airline HOT file processing).
