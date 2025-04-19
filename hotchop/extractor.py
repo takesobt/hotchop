@@ -1,11 +1,10 @@
-#!/usr/bin/env python3
-# -*- coding: UTF-8 -*-
-"""HOT file chopper batch program"""
+# extractor.py
+# -*- coding: utf-8 -*-
 
 import numpy as np
 import pandas as pd
 import random as rd
-# import pdb
+import logging
 
 class HOTchopper:
     # *-----------------------------------------------------------------------------------------------------------------*
@@ -91,8 +90,8 @@ class HOTchopper:
                 self.input_file
             )  # Detect the line separator
             if self._line_separator is None:
-                print("Error:Line separator could not be detected in the HOT file.")
-                return
+                logging.error("Error:Line separator could not be detected in the HOT file.")
+                raise
 
             with open(self.input_file, "r") as self.infile, open(
                 self.output_file, "w", newline=""
@@ -139,10 +138,9 @@ class HOTchopper:
                         self.df_BFT99.loc["    "] = 0
                     self._BFT99_Write()
 
-            # print(f"File {self.output_file} created successfully!")
-
         except Exception as e:
-            print(f"An error occurred: {e}")
+            logging.error(f"An error occurred: {e}")
+            raise
 
     # *-----------------------------------------------------------------------------------------------------------------*
     # * Method Name : _detect_line_separator

@@ -43,12 +43,16 @@ def main():
         # Call main program
         logging.info("👉 HOT chopper starts!") 
         logging.info(f"Input: {input_path}")
-        logging.info(f"Output: {output_path}")            
-        HOTchopper_ins = HOTchopper(
-            input_path, output_path, criteria_type, chop_criteria
-        )
-        HOTchopper_ins.HOT_chop()
-
+        logging.info(f"Output: {output_path}")
+        try:
+            HOTchopper_ins = HOTchopper(
+                input_path, output_path, criteria_type, chop_criteria
+            )
+            HOTchopper_ins.HOT_chop()
+        except Exception as e:
+            logging.error(f"Error: {e}")
+            messagebox.showerror("Error", f"Error: {e}")
+            return
         # Result get by dictionary
         result_criteria = HOTchopper_ins.getresult_criteria()
         wk_msg = ""
