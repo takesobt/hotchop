@@ -205,7 +205,7 @@ class HOTchopper:
             self.flgBCH02 = False  # BCH02 write flag off
             self.flgExtract = False
             self.strBCH02 = self._replace_string(
-                self.strBCH02.rstrip("\n"), 49, "CHOPPED BY THE HOT CHOPPER"
+                self.strBCH02.rstrip("\n"), 49, "CHOPPED BY THE HOTCHOP"
             )
             # Save PDAI,PCYC
             self.strNewBCH02Key = self.strInRec[13:17]  # PDAI＋PCYC

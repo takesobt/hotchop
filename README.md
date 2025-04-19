@@ -16,6 +16,17 @@ so that the output file can be used directly by revenue accounting systems confo
 - HOT file is compatible with IATA dish 22.0 or later
 - In order to avoid any potential conflict with the original file, both TIME and FSQN in BFH01 are set at random.
 
+## 📄 License
+
+This software is licensed under the [MIT License](LICENSE) for personal and non-commercial use.
+
+For commercial use, redistribution, or integration into proprietary products,  
+please contact the author to obtain a commercial license:
+📧 takesobt@yahoo.com
+
+This software is intentionally designed for niche use cases (e.g. airline HOT file processing).
+If you're interested in adapting or using this tool in an enterprise context, please contact the author.
+
 ## 🔧 HOTchop requires the poetry to be developed and processed.
 
 Install dependencies with Poetry:
