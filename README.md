@@ -71,13 +71,14 @@ poetry run python gui.py --log
 ![GUI with TRNN criteria](GUI_TRNN.png)
 
 - The criteria input box contains the default TRNN characters.
+- When the TRNN is pecified in the criteria, its leading zero can be abbreviated.
   Following processing, the results will be displayed for each criterion as outlined below.
   - 000101 OK → This TRNN exists in the input HOT file and has been successfully extracted.
   - 000203 __ → This TRNN does not exist in the input HOT file.
 
 ## 🚀 How to use CLI
 
-### There are 6 arArguments
+### CLI Arguments
 ```bash
 poetry run python -m hotchop.cli input_path output_path chop_criteria --criteria_type TDNR --overwrite --log
 ```
@@ -95,6 +96,7 @@ Following processing, the results will be displayed both in terminal and logfile
   - 9992423207406 OK → This TDNR exists in the input HOT file and has been successfully extracted.
   - 9992423239061 __ → This TDNR does not exist in the input HOT file.
 - criteria_type TRNN
+- When the TRNN is pecified in the criteria, its leading zero can be abbreviated.
   - 000101 OK → This TRNN exists in the input HOT file and has been successfully extracted.
   - 000203 __ → This TRNN does not exist in the input HOT file.
 
@@ -104,6 +106,7 @@ poetry run python -m hotchop.cli testdata/Input.txt testdata/output.txt 99924232
 poetry run python -m hotchop.cli testdata/Input.txt testdata/output.txt 9992423207406,9992423239061 --overwrite --log
 ```
 ### HOT chop by the TRNN criteria
+- When the TRNN is pecified in the creiteria, its leading zero can be abbreviated.
 ```bash
 poetry run python -m hotchop.cli testdata/Input.txt testdata/output.txt 1,2,3 --criteria_type TRNN --overwrite --log
 ```
